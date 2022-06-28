@@ -3,5 +3,6 @@ export const renderIndex = (req, res) => {
 };
 
 export const forWsp = (req, res) => {
-  res.send({mensage:'mensage recibido'})
+  console.log(req.body);
+  res.end();
 };
