@@ -1,0 +1,64 @@
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-header bg-dark text-center">
+      <h3 class="text-white">Producto Nuevo</h3>
+    </div>
+    <div class="card-body text-right">
+      <form action="/productos/new-producto" method="POST">
+        <div class="mb-3">
+          <label for="title">Nombre:</label>
+          <input
+            type="text"
+            name="nombre"
+            class="form-control"
+            placeholder="nombre"
+            autofocus
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description">Descripción:</label>
+          <textarea
+            name="descripcion"
+            class="form-control"
+            placeholder="descripcion"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="description">Código:</label>
+          <textarea
+            name="codigo"
+            class="form-control"
+            placeholder="codigo"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="description">foto:</label>
+          <textarea
+            name="foto"
+            class="form-control"
+            placeholder="foto"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="description">Precio:</label>
+          <textarea
+            name="precio"
+            class="form-control"
+            placeholder="precio"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="description">Stock:</label>
+          <textarea
+            name="stock"
+            class="form-control"
+            placeholder="stock"
+          ></textarea>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

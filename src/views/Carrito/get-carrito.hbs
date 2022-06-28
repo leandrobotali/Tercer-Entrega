@@ -1,0 +1,38 @@
+<div class="row">
+    <h1>Precio Total: {{precio_total}}</h1>
+    {{#each Carrito}}
+    <div class="col-md-3 my-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between align-items-center">
+                    {{nombreProd}}
+                </h4>
+                <img class="mx-auto d-block logo m-4" src={{imagen}} alt="Imagen Producto" />
+                <p>{{ descripcion }} </p>
+                <p class="lead">Precio: ${{precioProd }}</p>
+                <p class="lead">Cantidad: {{cantidad}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <form action="/carrito/compra/{{idProd}}" method="POST" class="d-inline">
+                        <input type="hidden" name="_method" value="POST">
+                        <input type="hidden" name="nombre" value="{{nombreProd}}">
+                        <input type="hidden" name="precio" value="{{precioProd }}">
+                        <input type="hidden" name="cantidad" value="{{cantidad}}">
+                        <button type="submit" class="btn btn-success px-4">Comprar</button>
+                    </form>
+                    <form action="/carrito/productos/{{idProd}}?_method=DELETE" method="POST" class="d-inline">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger px-4">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h1>Hola</h1>
+            <p class="lead">No hay productos agregados todavia.</p>
+        </div>
+    </div>
+    {{/each}}
+</div>

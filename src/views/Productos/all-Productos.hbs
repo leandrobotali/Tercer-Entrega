@@ -1,0 +1,31 @@
+<div class="row">
+  {{#each Productos}}
+  <div class="col-md-3 my-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{nombre }}
+        </h4>
+        <img class="mx-auto d-block logo m-4" src={{foto}} alt="Imagen Producto"/>
+        <p>{{ descripcion }} </p>
+        <p class="lead">Precio: ${{ precio }}</p>
+        <form action="/carrito/producto/{{_id}}" method="POST">
+          <input type="hidden" name="_method" value="POST">
+          <input type="hidden" name="nombre" value="{{nombre}}">
+          <input type="hidden" name="descripcion" value="{{ descripcion }}">
+          <input type="hidden" name="imagen" value="{{foto}}">
+          <input type="hidden" name="precioProd" value="{{precio}}">
+          <button type="submit" class="btn btn-success btn-block btn-sm">Adregar Al Carrito</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <div class="card mx-auto">
+    <div class="card-body">
+      <h1>Hola</h1>
+      <p class="lead">No hay productos agregados todavia.</p>
+    </div>
+  </div>
+  {{/each}}
+</div>

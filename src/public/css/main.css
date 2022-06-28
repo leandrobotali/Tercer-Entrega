@@ -1,0 +1,12 @@
+body {
+  background: linear-gradient(to right, #202020, #000000);
+}
+
+.logo {
+  width: 90%;
+}
+
+.img {
+  background: linear-gradient(to right, #202020, #000000);
+  border-radius: 15px;
+}

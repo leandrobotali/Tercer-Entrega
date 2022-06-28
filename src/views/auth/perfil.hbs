@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="card bg-dark text-white">
+        <div class="card-header">
+            Perfil
+        </div>
+        <div class="card-body">
+            <form action="/auth/upload" enctype="multipart/form-data" method="POST">
+                <div class="mb-3">
+                    <p class="text-center">Email: {{email}}</p>
+                    <p class="text-center">Nombre: {{name}}</p>
+                    <p class="text-center">Edad: {{edad}}</p>
+                    <p class="text-center">Direccion: {{direccion}}</p>
+                    <p class="text-center">Telefono: {{nroTel}}</p>
+                </div>
+                <img class="rounded-circle mx-auto d-block logo m-4" src={{img}} alt="Imagen Perfil"/>
+                <input type="file" class="form-control img" name="myFile" />
+                <button class="btn btn-primary btn-block mt-3">
+                    Subir imagen
+                </button>
+            </form>
+    
+        </div>
+    </div>
+  </div>
+</div>

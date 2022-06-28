@@ -1,0 +1,29 @@
+import { createAdminUser } from "./libs/createUser.js";
+import logger from './helpers/logger.js'
+import cluster from 'cluster'
+import os from 'os'
+
+import { conectar,desconectar } from './server.js'
+
+let PORT = process.argv[2] ?? 8080
+
+let MODE = process.argv[3] || "fork"
+
+if (MODE == "cluster"){
+    if (cluster.isPrimary) {
+        const cantCpus = os.cpus().length
+        for (let i = 0; i < cantCpus; i++) {
+            cluster.fork()
+        }
+        cluster.on('exit', worker => {
+            logger.info(`se cerro el proceso: '${worker.process.pid}'`)
+            cluster.fork()
+        })
+    } else {
+        await createAdminUser();
+        await conectar({ port: PORT })
+    }
+}else {
+    await createAdminUser();
+    await conectar({ port: PORT })
+}
