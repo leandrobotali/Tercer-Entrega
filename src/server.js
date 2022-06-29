@@ -60,7 +60,8 @@ app.use(
     cookie: {
       maxAge: (10 * 60 * 1000)
     },
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI_STORE_SESSIONS}),
+    store: MongoStore.create({ mongoUrl: 'mongodb://coderhouse:coderhouse@cluster0-shard-00-00.1xnky.mongodb.net:27017,cluster0-shard-00-01.1xnky.mongodb.net:27017,cluster0-shard-00-02.1xnky.mongodb.net:27017/sesiones?ssl=true&replicaSet=atlas-11uryb-shard-0&authSource=admin&retryWrites=true&w=majority'}),
+    // store: MongoStore.create({ mongoUrl: process.env.MONGO_URI_STORE_SESSIONS}),
   })
 );
 app.use(passport.initialize());
