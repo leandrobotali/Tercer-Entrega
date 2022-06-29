@@ -2,12 +2,11 @@
   "name": "project-3era-entrega",
   "version": "2.0.0",
   "description": "Notes App",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
-    "start": "babel-node src/main.js --exec",
     "dev": "nodemon src/main.js",
-    "devbabel": "nodemon src/main.js --exec babel-node"
+    "start": "node src/main.js"
   },
   "keywords": [],
   "author": "",
