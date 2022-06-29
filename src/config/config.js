@@ -17,5 +17,5 @@ export const ethereal = {
 export const twilioConf = {    
     nroSms: +19897621537,
     SSID: "ACb3ab228ab827efa9e7a52a869b9642dd",
-    token:"e1befa887df8d631331631492588dafe"
+    token:"70b6ccb6b7e928743bfbd001fb7735cb"
 }

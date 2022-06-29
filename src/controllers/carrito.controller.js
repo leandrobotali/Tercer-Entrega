@@ -31,21 +31,21 @@ export const confirmarCompra = async (req, res, next) => {
             from: twilioConf.nroSms,
             to: req.user.nroTel
         }
-        const WSPoptions = {
-            body: 'Nueva compra: ' + '\n Usuario: ' + req.user.email + '\n Producto: ' + req.body.nombre + '\n Precio: ' + req.body.precio + '\n Cantidad: ' + req.body.cantidad,
-            from: 'whatsapp:' + twilioConf.nroSms,
-            to: 'whatsapp:' + adminConf.nroTel
-        }
+        // const WSPoptions = {
+        //     body: 'Nueva compra: ' + '\n Usuario: ' + req.user.email + '\n Producto: ' + req.body.nombre + '\n Precio: ' + req.body.precio + '\n Cantidad: ' + req.body.cantidad,
+        //     from: 'whatsapp:' + twilioConf.nroSms,
+        //     to: 'whatsapp:' + adminConf.nroTel
+        // }
         
         const info = await transporter.sendMail(mailOption)
 
         const message = await client.messages.create(SMSoptions)
 
-        const wspMessage = await client.messages.create(WSPoptions)
+        // const wspMessage = await client.messages.create(WSPoptions)
 
         logger.info(info)
         logger.info(message)
-        logger.info(wspMessage)
+        // logger.info(wspMessage)
 
         await carritos.deleteByIdProd(req)
         req.flash("success_msg", "Su compra esta en proceso");
