@@ -1,7 +1,7 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 
-import User from "../models/User.js";
+import {userModel} from "../models/Models.js";
 
 passport.use(
   new LocalStrategy(
@@ -10,7 +10,7 @@ passport.use(
     },
     async (email, password, done) => {
       // Match Email's User
-      const user = await User.findOne({ email: email });
+      const user = await userModel.findOne({ email: email });
 
       if (!user) {
         return done(null, false, { message: "no existe el Usuario." });
@@ -32,7 +32,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
+  userModel.findById(id, (err, user) => {
     done(err, user);
   });
 });

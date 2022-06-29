@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import {userModel} from "../models/Models.js";
 import passport from "passport";
 import logger from '../helpers/logger.js'
 import { adminConf } from "../config/config.js";
@@ -33,14 +33,14 @@ export const singup = async (req, res, next) => {
       });
     }
   
-    const userFound = await User.findOne({ email: email });
+    const userFound = await userModel.findOne({ email: email });
     if (userFound) {
       req.flash("error_msg", "El Email ya esta en uso.");
       return res.redirect("/auth/signup");
     }
     let nroTel = parseInt(cod_pais + cod_area + nro_tel)
     
-    const newUser = new User({ name, email, password, direccion, edad, nroTel });
+    const newUser = new userModel({ name, email, password, direccion, edad, nroTel });
     newUser.password = await newUser.encryptPassword(password);
     await newUser.save();
     req.flash("success_msg", "Estas Registrado.");
@@ -86,12 +86,12 @@ export const uploadImg = async (req, res, next) => {
         })        
     }
     try {
-      await User.updateOne({_id:req.user.id},{
+      await userModel.updateOne({_id:req.user.id},{
         $set:{
             "img": "/img/" + req.file.filename
         }
       })
-      const getByIduser = await User.find({_id:req.user.id})
+      const getByIduser = await userModel.find({_id:req.user.id})
       res.render("auth/perfil", {
         email: getByIduser[0].email,
         name: getByIduser[0].name,

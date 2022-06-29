@@ -1,6 +1,4 @@
-import { getCarrito } from '../controllers/carrito.controller.js';
-import carritoModel from '../models/Carrito.js'
-import producto from "./DaosProductos.js";
+import {carritoModel} from '../models/Models.js'
 
 const carritos = {};
 

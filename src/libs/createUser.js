@@ -1,12 +1,12 @@
-import User from "../models/User.js";
+import {userModel} from "../models/Models.js";
 import {adminConf} from '../config/config.js'
 
 export const createAdminUser = async () => {
-  const userFound = await User.findOne({email: adminConf.email});
+  const userFound = await userModel.findOne({email: adminConf.email});
 
   if (userFound) return;
 
-  const newUser = new User({
+  const newUser = new userModel({
     email: adminConf.email,
     name: adminConf.name,
     direccion: adminConf.direccion,
