@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import bcrypt from "bcryptjs";
 import logger from '../helpers/logger.js'
 
-const MONGODB_URI = `mongodb+srv://coderhouse:coderhouse@cluster0.1xnky.mongodb.net/usuarios?retryWrites=true&w=majority`
+const MONGODB_URI = `mongodb://coderhouse:coderhouse@cluster0-shard-00-00.1xnky.mongodb.net:27017,cluster0-shard-00-01.1xnky.mongodb.net:27017,cluster0-shard-00-02.1xnky.mongodb.net:27017/?ssl=true&replicaSet=atlas-11uryb-shard-0&authSource=admin&retryWrites=true&w=majority`
 
 await mongoose.connect(MONGODB_URI)
 .then(db => logger.info('database is connected'))
