@@ -1,4 +1,5 @@
 import { createAdminUser } from "./libs/createUser.js";
+import mongoConex from './db/mongoConex.js'
 import logger from './helpers/logger.js'
 import cluster from 'cluster'
 import os from 'os'

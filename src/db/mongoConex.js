@@ -5,7 +5,7 @@ const { MONGODB_USER, MONGODB_PASS, MONGODB_HOST, MONGODB_DATABASE } = process.e
 
 const MONGODB_URI = `mongodb+srv://${MONGODB_USER}:${MONGODB_PASS}@${MONGODB_HOST}/${MONGODB_DATABASE}`
 
-export default mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
+export default mongoose.connect(MONGODB_URI)
 .then(db => logger.info('database is connected'))
 .catch(err => {
     logger.error('connection error')

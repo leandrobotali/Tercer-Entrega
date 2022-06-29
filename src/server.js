@@ -8,7 +8,6 @@ import methodOverride from "method-override";
 import flash from "connect-flash";
 import passport from "passport";
 import MongoStore from "connect-mongo";
-import mongoose from './db/mongoConex.js'
 import Handlebars from 'handlebars';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 import { dirname, join } from "path";
