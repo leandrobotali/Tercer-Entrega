@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema(
     name: { type: String, trim: true },
     direccion: { type: String, trim: true },
     edad: { type: Number, trim: true },
-    nroTel: { type: Number, trim: true },
+    nroTel: { type: String, trim: true },
     img: { type: String, default: "/img/default.jpg", trim: true },
     rol: { type: String, default: "user", trim: true },
     date: { type: Date, default: Date.now },

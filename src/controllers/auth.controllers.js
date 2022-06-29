@@ -14,7 +14,6 @@ export const singup = async (req, res, next) => {
     if (password.length < 4) errors.push({ text: "Passwords deben tener como minimo 4 caracteres." })  
     if (!direccion) errors.push({ text: "Falta el campo Direccion." })
     if (!edad) errors.push({ text: "Falta el campo Edad." })
-    if (!cod_pais) errors.push({ text: "Falta el codigo del pais." })
     if (!cod_area) errors.push({ text: "Falta el codigo de ciudad." })
     if (!nro_tel) errors.push({ text: "Falta el numero de telefono." })
     if (errors.length > 0) {
@@ -27,7 +26,6 @@ export const singup = async (req, res, next) => {
         confirm_password,
         direccion,
         edad,
-        cod_pais,
         cod_area,
         nro_tel,
       });
@@ -38,7 +36,7 @@ export const singup = async (req, res, next) => {
       req.flash("error_msg", "El Email ya esta en uso.");
       return res.redirect("/auth/signup");
     }
-    let nroTel = parseInt(cod_pais + cod_area + nro_tel)
+    let nroTel = cod_area + nro_tel
     
     const newUser = new userModel({ name, email, password, direccion, edad, nroTel });
     newUser.password = await newUser.encryptPassword(password);

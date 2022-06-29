@@ -165,3 +165,154 @@
   moreInfo: 'https://www.twilio.com/docs/errors/63007',
   details: undefined
 }
+[2022-06-29T00:56:50.289] [ERROR] default - RestException [Error]: Twilio could not find a Channel with the specified From address
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 63007,
+  moreInfo: 'https://www.twilio.com/docs/errors/63007',
+  details: undefined
+}
+[2022-06-29T01:03:40.753] [ERROR] default - RestException [Error]: The number  is unverified. Trial accounts cannot send messages to unverified numbers; verify  at twilio.com/user/account/phone-numbers/verified, or purchase a Twilio number to send messages to unverified numbers.
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 21608,
+  moreInfo: 'https://www.twilio.com/docs/errors/21608',
+  details: undefined
+}
+[2022-06-29T01:06:47.789] [ERROR] default - RestException [Error]: Twilio could not find a Channel with the specified From address
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 63007,
+  moreInfo: 'https://www.twilio.com/docs/errors/63007',
+  details: undefined
+}
+[2022-06-29T01:12:19.206] [ERROR] default - RestException [Error]: Twilio could not find a Channel with the specified From address
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 63007,
+  moreInfo: 'https://www.twilio.com/docs/errors/63007',
+  details: undefined
+}
+[2022-06-29T01:14:36.644] [ERROR] default - RestException [Error]: Twilio could not find a Channel with the specified From address
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 63007,
+  moreInfo: 'https://www.twilio.com/docs/errors/63007',
+  details: undefined
+}
+[2022-06-29T01:16:42.963] [ERROR] default - RestException [Error]: The 'To' number 543496544920 is not a valid phone number.
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 21211,
+  moreInfo: 'https://www.twilio.com/docs/errors/21211',
+  details: undefined
+}
+[2022-06-29T01:26:08.247] [ERROR] default - RestException [Error]: Twilio could not find a Channel with the specified From address
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 63007,
+  moreInfo: 'https://www.twilio.com/docs/errors/63007',
+  details: undefined
+}
+[2022-06-29T01:42:47.555] [ERROR] default - RestException [Error]: The number  is unverified. Trial accounts cannot send messages to unverified numbers; verify  at twilio.com/user/account/phone-numbers/verified, or purchase a Twilio number to send messages to unverified numbers.
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 21608,
+  moreInfo: 'https://www.twilio.com/docs/errors/21608',
+  details: undefined
+}
+[2022-06-29T01:50:30.370] [ERROR] default - ReferenceError: towsp is not defined
+    at confirmarCompra (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/controllers/carrito.controller.js:39:56)
+    at Layer.handle [as handle_request] (C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\route.js:144:13)
+    at isAuthenticated (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/helpers/auth.js:3:12)
+    at Layer.handle [as handle_request] (C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Work Space\Tercera entrega de project\node_modules\express\lib\router\index.js:365:14)
+[2022-06-29T01:58:10.179] [ERROR] default - RestException [Error]: The number  is unverified. Trial accounts cannot send messages to unverified numbers; verify  at twilio.com/user/account/phone-numbers/verified, or purchase a Twilio number to send messages to unverified numbers.
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 21608,
+  moreInfo: 'https://www.twilio.com/docs/errors/21608',
+  details: undefined
+}
+[2022-06-29T02:13:45.494] [ERROR] default - RestException [Error]: The 'To' number +549undefined is not a valid phone number.
+    at success (C:\Work Space\Tercera entrega de project\node_modules\twilio\lib\base\Version.js:135:15)
+    at Promise_then_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:766:44)
+    at Promise_done_fulfilled (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:835:31)
+    at Fulfilled_dispatch [as dispatch] (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1229:9)
+    at Pending_become_eachMessage_task (C:\Work Space\Tercera entrega de project\node_modules\q\q.js:1369:30)
+    at RawTask.call (C:\Work Space\Tercera entrega de project\node_modules\asap\asap.js:40:19)
+    at flush (C:\Work Space\Tercera entrega de project\node_modules\asap\raw.js:50:29)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+  status: 400,
+  code: 21211,
+  moreInfo: 'https://www.twilio.com/docs/errors/21211',
+  details: undefined
+}
