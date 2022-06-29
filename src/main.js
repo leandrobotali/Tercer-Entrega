@@ -3,7 +3,7 @@ import logger from './helpers/logger.js'
 import cluster from 'cluster'
 import os from 'os'
 
-import { conectar,desconectar } from './server.js'
+import { conectar} from './server.js'
 
 let PORT = process.argv[2] ?? 8080
 
