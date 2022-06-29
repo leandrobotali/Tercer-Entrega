@@ -5,7 +5,7 @@ import os from 'os'
 
 import { conectar} from './server.js'
 
-let PORT = process.env.PORT ?? 8080
+let PORT = process.env.PORT
 
 let MODE = process.argv[3] || "fork"
 
