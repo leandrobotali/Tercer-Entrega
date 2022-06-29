@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "babel-node src/main.js --exec",
     "dev": "nodemon src/main.js",
-    "start": "node src/main.js"
+    "devbabel": "nodemon src/main.js --exec babel-node"
   },
   "keywords": [],
   "author": "",
