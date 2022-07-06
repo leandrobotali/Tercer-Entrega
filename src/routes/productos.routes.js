@@ -7,7 +7,7 @@ import {
   updateProducto,
   deleteProducto,
 } from "../controllers/productos.controller.js";
-import { isAuthenticated, isAdmin } from "../helpers/auth.js";
+import { isAuthenticated, isAdmin } from "../middelwares/auth.js";
 
 const router = Router();
 

@@ -1,41 +1,28 @@
-import producto from "../daos/DaosProductos.js";
 import logger from '../helpers/logger.js'
+import {createProducto, getAll, getById, updateProd, deleteProd} from '../servicios/servProductos.js'
 
 export const renderProductoForm = (req, res, next) => res.render("Productos/new-Producto");
 
 export const createNewProducto = async (req, res, next) => {
-  const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
-  const errors = [];
-  if (!nombre) {errors.push({ text: "Falta el nombre del Producto." })}
-  if (!descripcion) {errors.push({ text: "Falta la Descripción del Producto." })}
-  if (!codigo) {errors.push({ text: "Falta el codigo del Producto." })}
-  if (!foto) {errors.push({ text: "Falta la foto del Producto." })}
-  if (!precio) {errors.push({ text: "Falta el precio del Producto." })}
-  if (!stock) {errors.push({ text: "Falta el stock del Producto." })}
-  if (errors.length > 0)
-    return res.render("Productos/new-Producto", {
-      errors,
-      nombre,
-      description, 
-      codigo, 
-      foto, 
-      precio, 
-      stock
-    });
-    try {
-      await producto.save(req);
+  try {
+    let prod = await createProducto(req)
+    if(prod == true){
       req.flash("success_msg", "Producto agregado");
-      logger.info('producto ' + nombre + ' registrado ')
-      res.redirect("/productos");      
-    } catch (error) {
-      logger.error(error)
-      next(error)
+      logger.info('producto registrado')
+      res.redirect("/productos"); 
+    }else {
+      let errors = prod
+      res.render("Productos/new-Producto", {errors})
     }
+  } catch (error) {
+    logger.error(error)
+    next(error)
+  }
 };
 
 export const renderProductos = async (req, res, next) => {
   try {
-    const Productos = await producto.getAll();
+    const Productos = await getAll();
     if(req.isAuthenticated()){
       if(req.user.rol == "admin"){
         res.render("Productos/all-Productos-admin", { Productos: Productos });    
@@ -53,7 +40,7 @@ export const renderProductos = async (req, res, next) => {
 
 export const renderEditForm = async (req, res, next) => {
   try {
-    const Producto = await producto.getById(req.params.id);    
+    const Producto = await getById(req.params.id);    
     res.render("Productos/edit-Producto", { 
       id: Producto[0]._id,
       nombre: Producto[0].nombre,
@@ -69,39 +56,27 @@ export const renderEditForm = async (req, res, next) => {
   }
 };
 
-export const updateProducto = async (req, res) => {
-  const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
-  const errors = [];
-  if (!nombre) {errors.push({ text: "Falta el nombre del Producto." })}
-  if (!descripcion) {errors.push({ text: "Falta la Descripción del Producto." })}
-  if (!codigo) {errors.push({ text: "Falta el codigo del Producto." })}
-  if (!foto) {errors.push({ text: "Falta la foto del Producto." })}
-  if (!precio) {errors.push({ text: "Falta el precio del Producto." })}
-  if (!stock) {errors.push({ text: "Falta el stock del Producto." })}
-  if (errors.length > 0)
-    return res.render("Productos/new-Producto", {
-      errors,
-      nombre,
-      description, 
-      codigo, 
-      foto, 
-      precio, 
-      stock
-    });
-    try {
-      await producto.updateById(req);
+export const updateProducto = async (req, res, next) => {
+  try {
+    let prod = await updateProd(req)
+    if(prod == true){
       req.flash("success_msg", "Producto actualizado");
-      logger.info('producto ' + nombre + ' actualizado ')
-      res.redirect("/productos");      
-    } catch (error) {
-      logger.error(error)
-      next(error)
+      logger.info("Producto actualizado")
+      res.redirect("/productos"); 
+    }else {
+      let errors = prod
+      const { nombre, descripcion, codigo, foto, precio, stock } = req.body
+      res.render("Productos/edit-Producto", {errors, id: req.params.id, nombre, descripcion, codigo, foto, precio, stock});
     }
+  } catch (error) {
+    logger.error(error)
+    next(error)
+  }
 };
 
 export const deleteProducto = async (req, res,next) => {
   try {
-    await producto.deleteById(req.params.id);
+    await deleteProd(req.params.id);
     req.flash("success_msg", "Producto Eliminado");
     logger.info('producto eliminado')
     res.redirect("/Productos");      

@@ -1,65 +1,26 @@
-import {userModel} from "../models/Models.js";
 import passport from "passport";
 import logger from '../helpers/logger.js'
-import { adminConf } from "../config/config.js";
-import transporter from '../helpers/transportMail.js'
+import { registro, actualizarImg } from "../servicios/servAuth.js";
 
 export const renderSignUpForm = (req, res, next) => res.render("auth/signup");
 
 export const singup = async (req, res, next) => {
   try {
-    let errors = [];
-    const { name, email, password, confirm_password, direccion, edad, cod_pais,cod_area, nro_tel } = req.body;
-    if (password !== confirm_password)errors.push({ text: "Passwords no coinciden." });
-    if (password.length < 4) errors.push({ text: "Passwords deben tener como minimo 4 caracteres." })  
-    if (!direccion) errors.push({ text: "Falta el campo Direccion." })
-    if (!edad) errors.push({ text: "Falta el campo Edad." })
-    if (!cod_area) errors.push({ text: "Falta el codigo de ciudad." })
-    if (!nro_tel) errors.push({ text: "Falta el numero de telefono." })
-    if (errors.length > 0) {
-      logger.error(errors)
-      return res.render("auth/signup", {
-        errors,
-        name,
-        email,
-        password,
-        confirm_password,
-        direccion,
-        edad,
-        cod_area,
-        nro_tel,
-      });
+    let user = await registro(req)
+    if(user == true){
+      req.flash("success_msg", "Estas Registrado");
+      logger.info("Usuario Registrado")
+      res.redirect("/auth/signin"); 
+    }else {
+      let errors = user
+      const { name, email, password, confirm_password, direccion, edad, cod_area, nro_tel } = req.body;
+      res.render("auth/signup", {errors, name, email, password, confirm_password, direccion, edad, cod_area, nro_tel});
     }
-  
-    const userFound = await userModel.findOne({ email: email });
-    if (userFound) {
-      req.flash("error_msg", "El Email ya esta en uso.");
-      return res.redirect("/auth/signup");
-    }
-    let nroTel = cod_area + nro_tel
-    
-    const newUser = new userModel({ name, email, password, direccion, edad, nroTel });
-    newUser.password = await newUser.encryptPassword(password);
-    await newUser.save();
-    req.flash("success_msg", "Estas Registrado.");
-    logger.info('usuario ' + email + ' registrado ')
-
-    const mailOption = {
-      from:'Servidor Node js',
-      to: adminConf.email,
-      subject: 'Nuevo Registro',
-      text: 'nuevo usuario:\n nombre: ' + name + '\n email: ' + email + '\n direccion: ' + direccion + '\n edad: ' + edad + '\n numero de telefono: ' + nroTel,
-    }
-
-    const info = await transporter.sendMail(mailOption)
-
-    logger.info(info)
-    res.redirect("/auth/signin");    
   } catch (error) {
     logger.error(error)
     next(error)
   }
-};
+}  
 
 export const renderSigninForm = (req, res,next) => res.render("auth/signin");
 
@@ -70,50 +31,23 @@ export const signin = passport.authenticate("local", {
 });
 
 export const uploadImg = async (req, res, next) => {
-  const file = req.file
-    if (!file) {
+  try {
+    let user = await actualizarImg(req)
+    if (user == false) {
       logger.error('no se seleccion imagen')
-        return res.render("auth/perfil",{
-          email: req.user.email,
-          name: req.user.name,
-          edad: req.user.edad,
-          direccion: req.user.direccion,
-          nroTel: req.user.nroTel, 
-          img: req.user.img, 
-          error:"debe seleccionar un archivo"
-        })        
-    }
-    try {
-      await userModel.updateOne({_id:req.user.id},{
-        $set:{
-            "img": "/img/" + req.file.filename
-        }
-      })
-      const getByIduser = await userModel.find({_id:req.user.id})
-      res.render("auth/perfil", {
-        email: getByIduser[0].email,
-        name: getByIduser[0].name,
-        edad: getByIduser[0].edad,
-        direccion: getByIduser[0].direccion,
-        nroTel: getByIduser[0].nroTel, 
-        img: getByIduser[0].img
-      });
+      res.render("auth/perfil",{email: req.user.email, name: req.user.name, edad: req.user.edad, direccion: req.user.direccion, nroTel: req.user.nroTel, img: req.user.img, error:"debe seleccionar un archivo"}) 
+    } else {
+      res.render("auth/perfil", {email: user.email, name: user.name, edad: user.edad, direccion: user.direccion, nroTel: user.nroTel, img: user.img});
       logger.info('usuario ' + req.user.email + ' cambio su foto de perfil ')
-    } catch (error) {
-      logger.error(error)
-      next(error)
     }
+  } catch (error) {
+    logger.error(error)
+    next(error)
+  }
 }
 
 export const perfil = async (req, res, next) => {
-  res.render("auth/perfil", {
-    email: req.user.email,
-    name: req.user.name,
-    edad: req.user.edad,
-    direccion: req.user.direccion,
-    nroTel: req.user.nroTel, 
-    img: req.user.img,
-  });
+  res.render("auth/perfil", {email: req.user.email, name: req.user.name, edad: req.user.edad, direccion: req.user.direccion, nroTel: req.user.nroTel, img: req.user.img});
 }
 
 export const logout = async (req, res, next) => {

@@ -16,16 +16,9 @@ producto.getAll = async() => {
     }
 }
 
-producto.save = async (req) => {
+producto.save = async (prod) => {
     try {
-        const newProducto = new productosModel({
-            "nombre": req.body.nombre,
-            "descripcion": req.body.descripcion,
-            "codigo": req.body.codigo,
-            "foto": req.body.foto,
-            "precio": req.body.precio,
-            "stock": req.body.stock
-        })
+        const newProducto = new productosModel(prod)
         await newProducto.save()
 
         return { 'messaje': 'Producto Agregado' }

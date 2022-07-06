@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 import {getCarrito, confirmarCompra, agregarProdaCarr, deleteByIdProd} from '../controllers/carrito.controller.js'
-import { isAuthenticated } from "../helpers/auth.js";
+import { isAuthenticated } from "../middelwares/auth.js";
 
 
 router.get('/carrito', isAuthenticated, getCarrito);

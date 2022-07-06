@@ -1,15 +1,10 @@
-import carritos from "../daos/DaosCarritos.js";
 import logger from '../helpers/logger.js'
-import {envioMailSmsWsp} from '../helpers/envio.js'
+import {Carrito, Comprar, agregarProd, deleteProd} from '../servicios/servCarrito.js'
 
 export const getCarrito = async (req, res, next) => {
     try {
-        const Carrito = await carritos.getCarrito(req.user.id)
-        let precioTotal = 0;
-        for (let i = 0; i < Carrito.length; i++) {
-            precioTotal += (Carrito[i].catidad * Carrito[i].PrecioProd)
-        }
-        res.render("Carrito/get-carrito", { Carrito: Carrito});
+        const Carritos = await Carrito(req.user.id)
+        res.render("Carrito/get-carrito", { Carrito: Carritos});
     } catch (error) {
         logger.error(error)
         next(error)
@@ -18,8 +13,7 @@ export const getCarrito = async (req, res, next) => {
 
 export const confirmarCompra = async (req, res, next) => {
     try {
-        envioMailSmsWsp(req)
-        await carritos.deleteByIdProd(req)
+        await Comprar(req)
         req.flash("success_msg", "Su compra esta en proceso");
         res.redirect("/carrito");
     } catch (error) {
@@ -30,7 +24,7 @@ export const confirmarCompra = async (req, res, next) => {
 
 export const agregarProdaCarr = async (req, res, next) => {
     try {
-        await carritos.agregarProdaCarr(req)
+        await agregarProd(req)
         req.flash("success_msg", "Producto agregado");
         res.redirect("/productos");
     } catch (error) {
@@ -41,7 +35,7 @@ export const agregarProdaCarr = async (req, res, next) => {
 
 export const deleteByIdProd = async (req, res, next) => {
     try {
-        await carritos.deleteByIdProd(req)
+        await deleteProd(req)
         req.flash("success_msg", "Producto Eliminado de Carrito");
         res.redirect("/carrito");
     } catch (error) {

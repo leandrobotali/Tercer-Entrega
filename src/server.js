@@ -17,7 +17,7 @@ import indexRoutes from "./routes/index.routes.js";
 import productosRoutes from "./routes/productos.routes.js";
 import userRoutes from "./routes/auth.routes.js";
 import carritoRoutes from "./routes/carrito.routes.js";
-import manejadorDeErrores from './libs/errores.js'
+import manejadorDeErrores from './middelwares/errores.js'
 import "./config/passport.js";
 import logger from './helpers/logger.js'
 
@@ -85,13 +85,6 @@ app.use(userRoutes);
 app.use(productosRoutes);
 app.use(carritoRoutes);
 app.use(manejadorDeErrores)
-
-//======================================================
-// ruta no implementada
-app.use((req, res) => {
-  logger.warn(`Se visito la ruta ${req.originalUrl} y metodo ${req.method}`)
-  res.render("404");
-});
 
 //======================================================
 //server

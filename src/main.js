@@ -1,4 +1,4 @@
-import { createAdminUser } from "./libs/createUser.js";
+import { createAdminUser } from "./helpers/createUser.js";
 import logger from './helpers/logger.js'
 import cluster from 'cluster'
 import os from 'os'
@@ -20,10 +20,10 @@ if (MODE == "cluster"){
             cluster.fork()
         })
     } else {
-        await createAdminUser();
         await conectar({ port: PORT })
+        await createAdminUser();
     }
 }else {
-    await createAdminUser();
     await conectar({ port: PORT })
+    await createAdminUser();
 }

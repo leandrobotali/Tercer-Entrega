@@ -1,14 +1,6 @@
 import { Router } from "express";
-import {
-  renderSignUpForm,
-  singup,
-  renderSigninForm,
-  signin,
-  uploadImg,
-  perfil,
-  logout,
-} from "../controllers/auth.controllers.js";
-import { isAuthenticated } from "../helpers/auth.js";
+import {renderSignUpForm, singup, renderSigninForm, signin, uploadImg, perfil, logout} from "../controllers/auth.controllers.js";
+import { isAuthenticated } from "../middelwares/auth.js";
 import upload from "../helpers/procArchivo.js";
 
 const router = Router();

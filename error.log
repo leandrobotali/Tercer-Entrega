@@ -316,3 +316,29 @@
   moreInfo: 'https://www.twilio.com/docs/errors/21211',
   details: undefined
 }
+[2022-07-06T00:01:23.920] [ERROR] default - ReferenceError: Prod is not defined
+    at createNewProducto (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/controllers/productos.controller.js:15:20)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-07-06T00:01:59.806] [ERROR] default - ReferenceError: description is not defined
+    at createNewProducto (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/controllers/productos.controller.js:20:9)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-07-06T00:14:16.322] [ERROR] default - ReferenceError: nombre is not defined
+    at createNewProducto (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/controllers/productos.controller.js:12:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-07-06T00:39:42.166] [ERROR] default - TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of Object
+    at new NodeError (node:internal/errors:372:5)
+    at validateString (node:internal/validators:120:11)
+    at extname (node:path:837:5)
+    at new View (C:\Work Space\Tercera entrega de project\node_modules\express\lib\view.js:56:14)
+    at Function.render (C:\Work Space\Tercera entrega de project\node_modules\express\lib\application.js:587:12)
+    at ServerResponse.render (C:\Work Space\Tercera entrega de project\node_modules\express\lib\response.js:1039:7)
+    at updateProducto (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/controllers/productos.controller.js:71:11)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}
+[2022-07-06T01:54:34.350] [ERROR] default - TypeError: Cannot read properties of undefined (reading 'email')
+    at uploadImg (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/controllers/auth.controllers.js:41:24)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-07-06T02:02:59.459] [ERROR] default - ReferenceError: prod is not defined
+    at singup (file:///C:/Work%20Space/Tercera%20entrega%20de%20project/src/controllers/auth.controllers.js:15:20)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
